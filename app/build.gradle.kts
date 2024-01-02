@@ -35,10 +35,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        allWarningsAsErrors = false
     }
     buildFeatures {
         compose = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
@@ -50,6 +52,11 @@ android {
 }
 
 dependencies {
+
+    val nav_version = "2.7.6"
+
+    implementation ("androidx.navigation:navigation-compose:$nav_version")
+
 
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
