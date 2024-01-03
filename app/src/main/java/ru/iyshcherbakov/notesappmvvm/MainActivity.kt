@@ -25,23 +25,21 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             NotesAppMVVMTheme {
-Scaffold(
+                Scaffold(
 
+                    topBar = {TopAppBar(
+                        title = {
+                            Text(text = "Notes App")
+                        },
+                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                            containerColor = Color.Green.copy(alpha = 0.3f)
+                        )
+                    )},
+                    content = {
+                            NotesNavHost(paddingValues = it)
+                    }
 
-    topBar = {TopAppBar(
-
-        title = {
-            Text(text = "Notes App")
-        },
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-            containerColor = Color.Green.copy(alpha = 0.3f)
-        )
-    )},
-
-    content = {
-            NotesNavHost(paddingValues = it)
-    }
-)
+                )
             }
         }
     }

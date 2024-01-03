@@ -8,10 +8,14 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import ru.iyshcherbakov.notesappmvvm.screens.Add
-import ru.iyshcherbakov.notesappmvvm.screens.Main
-import ru.iyshcherbakov.notesappmvvm.screens.Note
-import ru.iyshcherbakov.notesappmvvm.screens.Start
+
+import ru.iyshcherbakov.notesappmvvm.screens.AddScreen
+
+import ru.iyshcherbakov.notesappmvvm.screens.MainScreen
+
+import ru.iyshcherbakov.notesappmvvm.screens.NoteScreen
+
+import ru.iyshcherbakov.notesappmvvm.screens.StartScreen
 
 sealed class NavRoute(val route: String){
     object Start: NavRoute("start_screen")
@@ -28,10 +32,10 @@ Surface (
 ){
 
     NavHost(navController = navController, startDestination = "start_screen") {
-        composable("start_screen") { Start(navHostController = navController) }
-        composable("main_screen") { Main(navHostController = navController) }
-        composable("add_screen") { Add(navHostController = navController) }
-        composable("note_screen") { Note(navHostController = navController) }
+        composable("start_screen") { StartScreen(navController = navController) }
+        composable("main_screen") { MainScreen(navController = navController) }
+        composable("add_screen") { AddScreen(navController = navController) }
+        composable("note_screen") { NoteScreen(navController = navController) }
     }
 }
 }
